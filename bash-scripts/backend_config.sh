@@ -8,6 +8,8 @@
 USER_NAME=""
 ADMIN_PW=""
 
+USER_NAME="atoosanasiri"
+ADMIN_PW="@atoosanasiri123"
 # ---------------------------------------------------
 # sshkey pair names
 sshkey_name="sshkey-$ID"
@@ -41,8 +43,6 @@ LR_NSG_name="LR-NSG-$ID"
 LS_NSG_name="LS-NSG-$ID"
 WS_NSG_name="WS-NSG-$ID"
 
-declare -a NSG_list=("$WC_NSG_name" "$LR_NSG_name" "$LS_NSG_name" "$WS_NSG_name")
-
 # ---------------------------------------------------
 # VM Image, Machine Size, Disk Settings
 VM_IMG_WC="MicrosoftWindowsDesktop:Windows-10:win10-21h2-pro-g2:latest"
@@ -67,4 +67,4 @@ Azure_Default_DNS="168.63.129.16"
 
 declare -a vm_list=("$VM_WC" "$VM_LR" "$VM_WS" "$VM_LS")
 declare -a nic_list=("$NIC_WC" "$NIC_LR" "$NIC_WS"  "$NIC_LS")
-
+declare -a NSG_list=("$WC_NSG_name" "$LR_NSG_name" "$LS_NSG_name" "$WS_NSG_name")

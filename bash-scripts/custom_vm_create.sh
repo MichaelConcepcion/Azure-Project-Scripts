@@ -1,8 +1,8 @@
 echo "Loading variables:"
 echo "network_config.sh"
 source ./network_config.sh
-echo "vm_config.sh"
-source ./vm_config.sh
+echo "backend_config.sh"
+source ./backend_config.sh
 echo "Loaded image variabes without error"
 
 
@@ -85,6 +85,47 @@ hyperv_gen="V2"
 windows_vm_from_custom_image $vm $nic_name $hyperv_gen
 
 echo
+echo "---------------------------------------------------------------------------------"
+echo "Wait until all vm are created successfully before configuring auto-shutdown"
+echo "---------------------------------------------------------------------------------"
+echo
+
+vm_status_flag="false"
+
+while [ $vm_status_flag != "true" ]
+do
+    echo "Waits for 30 seconds before checking VM statu ---"
+    sleep 3
+    echo "Checking VM status now ---"
+    echo ""
+    if [[ $(az vm list -g $RG_NAME -o tsv --query "[?name=='$VM_WC']") \
+        && $(az vm list -g $RG_NAME -o tsv --query "[?name=='$VM_WS']") \
+        && $(az vm list -g $RG_NAME -o tsv --query "[?name=='$VM_LR']") \
+        && $(az vm list -g $RG_NAME -o tsv --query "[?name=='$VM_LS']") ]]
+    then
+        vm_status_flag="true"
+    else
+        vm_status_flag="false"
+    fi
+    if [ $vm_status_flag == "true" ];  then 
+        echo "All VMs created without error!"
+        echo "Script will continue to configure auto-shutdown for all VMs"
+        break
+    else
+        echo "Script is unable to query all VM successfully, this may be due to VM creation error!"
+        echo "You can exit at his stage, but this will risky"
+        echo "You are about to exit without configurign auto shutdwon configuration"
+        echo "Do you want to exit? (yes/no)"
+        read -r answer
+        if [ "$answer" == "yes" ]; then
+            echo "You must run configure_auto_shutdown.sh script to configure auto-shutdown for all VMs"
+            echo "Exiting!" 
+            exit 2
+        fi
+    fi
+done
+
+echo
 echo "---------------------------------------------------"
 echo "Configuring Auto shutdown for all VMs at 0500 UTC"
 echo "---------------------------------------------------"
@@ -109,5 +150,3 @@ echo "VMs created without error!"
 echo "END!"
 echo "---------------------------------------------------"
 echo
-
-

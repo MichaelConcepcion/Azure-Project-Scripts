@@ -1,8 +1,8 @@
 echo "Loading variables:"
 echo "network_config.sh"
 source ./network_config.sh
-echo "vm_config.sh"
-source ./vm_config.sh
+echo "backend_config.sh"
+source ./backend_config.sh
 echo "Loaded variabes without error"
 
 
@@ -49,3 +49,6 @@ do
         fi
     fi
 done
+
+echo "Iamge List"
+az image list -g $RG_NAME --out table
