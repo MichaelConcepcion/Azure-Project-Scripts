@@ -24,7 +24,9 @@ config.ini
 secrets.txt
 
 # ignore ssh key folders
-caa900naa/
+.caa900naa/
 
 # ignore ssh keys
 *.pem
+
+.gitignore
