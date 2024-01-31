@@ -1,8 +1,9 @@
+source ./logos.sh
 echo "Loading variables:"
 echo "network_config.sh"
 source ./network_config.sh
-echo "vm_config.sh"
-source ./vm_config.sh
+echo "backend_config.sh"
+source ./backend_config.sh
 echo "Loaded variabes without error"
 
 echo "======================================================================"
@@ -24,3 +25,4 @@ echo "---------------------------------------------------------------------"
     az vm auto-shutdown -g $RG_NAME -n $vm_name --time $shutdown_time
 # fi
 done
+

@@ -1,5 +1,12 @@
+source ./logos.sh
+echo "Loading variables:"
+echo "network_config.sh"
 source ./network_config.sh
-source ./vm_config.sh
+echo "backend_config.sh"
+source ./backend_config.sh
+echo "Loaded variabes without error"
+
+function nic_create () {
 
 nic_name=$1
 vnet_name=$2
@@ -33,3 +40,10 @@ else
         az network nic list -g $RG_NAME --out table
     fi
 fi
+
+}
+
+nic_create "$NIC_WC" "$Student_vnet_name" "$Subnet_WC" "$WC_NSG_name"
+nic_create "$NIC_LR" "$Router_vnet_name" "$Subnet_LR" "$LR_NSG_name"
+nic_create "$NIC_WS" "$Server_vnet_name" "$Subnet_WS" "$WS_NSG_name"
+nic_create "$NIC_LS" "$Server_vnet_name" "$Subnet_LS" "$LS_NSG_name"

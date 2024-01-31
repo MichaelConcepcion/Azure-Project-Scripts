@@ -6,7 +6,7 @@
 
 RG_NAME=""     # your student group
 LOCATION=""    # your location
-ID=""          #unique ID assigned to you
+ID="9"          #unique ID assigned to you
 
 Student_vnet_name=""
 Student_vnet_address=""

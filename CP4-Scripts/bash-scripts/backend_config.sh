@@ -50,7 +50,7 @@ VM_IMG_LR="RedHat:RHEL:8-lvm-gen2:latest"
 VM_IMG_WS="MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest"
 VM_IMG_LS="RedHat:RHEL:8-lvm-gen2:latest"
 
-VM_SIZE="Standard_B2s"
+VM_SIZE="Standard_B1s"
 OS_DISK_SKU="StandardSSD_LRS"
 
 # ---------------------------------------------------
