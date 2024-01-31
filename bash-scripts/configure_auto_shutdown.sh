@@ -1,4 +1,4 @@
-source ./logos.sh
+
 echo "Loading variables:"
 echo "network_config.sh"
 source ./network_config.sh

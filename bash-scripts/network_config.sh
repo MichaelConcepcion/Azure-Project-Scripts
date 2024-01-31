@@ -1,3 +1,6 @@
+# Date: 2021-04-10
+# source logos
+source  ./logos.sh
 # variable declaration
 
 # //////////////////////////////////////////////////////////////

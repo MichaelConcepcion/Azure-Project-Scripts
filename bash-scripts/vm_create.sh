@@ -1,4 +1,3 @@
-source ./logos.sh
 echo "Loading variables:"
 echo "network_config.sh"
 source ./network_config.sh
@@ -94,8 +93,8 @@ vm_status_flag="false"
 
 while [ $vm_status_flag != "true" ]
 do
-    echo "Waits for 30 seconds before checking VM statu ---"
-    sleep 3
+    echo "Waits for $sleep_time seconds before checking VM statu ---"
+    sleep $sleep_time
     echo "Checking VM status now ---"
     echo ""
     if [[ $(az vm list -g $RG_NAME -o tsv --query "[?name=='$VM_WC']") \
@@ -127,11 +126,11 @@ done
 
 echo
 echo "---------------------------------------------------"
-echo "Configuring Auto shutdown for all VMs at 0500 UTC"
+echo "Configuring Auto shutdown for all VMs at $shutdown_time UTC"
 echo "---------------------------------------------------"
 echo
 
-shutdown_time="0500"
+shutdown_time=$shutdown_time
 
 for vm_name in "${vm_list[@]}"
 do
