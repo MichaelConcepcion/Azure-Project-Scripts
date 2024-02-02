@@ -1,4 +1,5 @@
 # variable declaration
+source ./network_config.sh
 
 # //////////////////////////////////////////////////////////////
 # Update the lines that are specific to your network 
