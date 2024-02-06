@@ -1,5 +1,6 @@
 # variable declaration
-source ./network_config.sh
+# already declared in another file, this line is redundant
+# source ./network_config.sh
 
 # //////////////////////////////////////////////////////////////
 # Update the lines that are specific to your network 
