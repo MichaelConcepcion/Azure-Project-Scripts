@@ -50,7 +50,6 @@ else
                         --source $osDisk_id \
                         --data-disk-caching None \
                         --hyper-v-generation $hyperv_gen \
-                        --security-type "Standard" \
                         --location $LOCATION  \
                         --os-disk-caching None \
                         --os-type $os_type \
