@@ -1,14 +1,13 @@
 # variable declaration
-# already declared in another file, this line is redundant
-# source ./network_config.sh
+source ./network_config.sh
 
 # //////////////////////////////////////////////////////////////
 # Update the lines that are specific to your network 
 # /////////////////////////////////////////////////////////////
 # ---------------------------------------------------
 # Windows VM Credentials
-USER_NAME=""
-ADMIN_PW=""
+USER_NAME="mikelaine"
+ADMIN_PW="@Riann3*0214"
 
 # ---------------------------------------------------
 # sshkey pair names
